@@ -50,6 +50,25 @@ public class UtilidadesPersonaje {
         return poderoso;
     }
 
+    //Que devuelve el personaje más poderoso de cada región.
+
+    public Map<Region, Personaje> getMasPoderosoPorRegion(List<Personaje> personajes){
+        Map<Region,Personaje> mapa = new HashMap<>();
+
+       mapa.put(Region.DEMACIA,getMasPoderoso(personajes.stream().filter(p-> p.getRegion().equals(Region.DEMACIA)).collect(Collectors.toList())));
+       mapa.put(Region.NOXUS,getMasPoderoso(personajes.stream().filter(p-> p.getRegion().equals(Region.NOXUS)).collect(Collectors.toList())));
+       mapa.put(Region.JONIA,getMasPoderoso(personajes.stream().filter(p-> p.getRegion().equals(Region.JONIA)).collect(Collectors.toList())));
+       mapa.put(Region.SHURIMA,getMasPoderoso(personajes.stream().filter(p-> p.getRegion().equals(Region.SHURIMA)).collect(Collectors.toList())));
+       mapa.put(Region.TARGON,getMasPoderoso(personajes.stream().filter(p-> p.getRegion().equals(Region.TARGON)).collect(Collectors.toList())));
+       mapa.put(Region.FREIJORD,getMasPoderoso(personajes.stream().filter(p-> p.getRegion().equals(Region.FREIJORD)).collect(Collectors.toList())));
+       mapa.put(Region.PILTOVER,getMasPoderoso(personajes.stream().filter(p-> p.getRegion().equals(Region.PILTOVER)).collect(Collectors.toList())));
+       mapa.put(Region.ZAUM,getMasPoderoso(personajes.stream().filter(p-> p.getRegion().equals(Region.ZAUM)).collect(Collectors.toList())));
+       mapa.put(Region.BANDLE,getMasPoderoso(personajes.stream().filter(p-> p.getRegion().equals(Region.BANDLE)).collect(Collectors.toList())));
+       mapa.put(Region.AGUAS_ESTANCADAS,getMasPoderoso(personajes.stream().filter(p-> p.getRegion().equals(Region.AGUAS_ESTANCADAS)).collect(Collectors.toList())));
+       mapa.put(Region.DESCONOCIDA,getMasPoderoso(personajes.stream().filter(p-> p.getRegion().equals(Region.DESCONOCIDA)).collect(Collectors.toList())));
+
+        return mapa;
+    }
 
 
 }
