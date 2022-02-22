@@ -20,6 +20,8 @@ public class Escalabilidad {
     public Escalabilidad() {
     }
 
+
+
     public int getId() {
         return id;
     }
