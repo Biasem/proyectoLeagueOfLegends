@@ -10,7 +10,7 @@ public class Personaje {
     private String descripcion;
     private LocalDate fechaCreacion;
     private Integer nivel;
-    private Double videBase;
+    private Double vidaBase;
     private Double manaBase;
     private Double defensaBase;
     private Double defensa;
@@ -23,13 +23,13 @@ public class Personaje {
     private List<Item> equipamiento;
     private Escalabilidad escalabilidad;
 
-    public Personaje(int id, String nombre, String descripcion, LocalDate fechaCreacion, Integer nivel, Double videBase, Double manaBase, Double defensaBase, Double defensa, Double ataqueBase, Double ataque, Double vida, Double mana, Region region, List<Habilidad> habilidades, List<Item> equipamiento, Escalabilidad escalabilidad) {
+    public Personaje(int id, String nombre, String descripcion, LocalDate fechaCreacion, Integer nivel, Double vidaBase, Double manaBase, Double defensaBase, Double defensa, Double ataqueBase, Double ataque, Double vida, Double mana, Region region, List<Habilidad> habilidades, List<Item> equipamiento, Escalabilidad escalabilidad) {
         this.id = id;
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.fechaCreacion = fechaCreacion;
         this.nivel = nivel;
-        this.videBase = videBase;
+        this.vidaBase = vidaBase;
         this.manaBase = manaBase;
         this.defensaBase = defensaBase;
         this.defensa = defensa;
@@ -86,12 +86,12 @@ public class Personaje {
         this.nivel = nivel;
     }
 
-    public Double getVideBase() {
-        return videBase;
+    public Double getVidaBase() {
+        return vidaBase;
     }
 
-    public void setVideBase(Double videBase) {
-        this.videBase = videBase;
+    public void setVidaBase(Double videBase) {
+        this.vidaBase = videBase;
     }
 
     public Double getManaBase() {
@@ -190,7 +190,7 @@ public class Personaje {
                 ", descripcion='" + descripcion + '\'' +
                 ", fechaCreacion=" + fechaCreacion +
                 ", nivel=" + nivel +
-                ", videBase=" + videBase +
+                ", videBase=" + vidaBase +
                 ", manaBase=" + manaBase +
                 ", defensaBase=" + defensaBase +
                 ", defensa=" + defensa +
@@ -210,11 +210,11 @@ public class Personaje {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Personaje personaje = (Personaje) o;
-        return id == personaje.id && Objects.equals(nombre, personaje.nombre) && Objects.equals(descripcion, personaje.descripcion) && Objects.equals(fechaCreacion, personaje.fechaCreacion) && Objects.equals(nivel, personaje.nivel) && Objects.equals(videBase, personaje.videBase) && Objects.equals(manaBase, personaje.manaBase) && Objects.equals(defensaBase, personaje.defensaBase) && Objects.equals(defensa, personaje.defensa) && Objects.equals(ataqueBase, personaje.ataqueBase) && Objects.equals(ataque, personaje.ataque) && Objects.equals(vida, personaje.vida) && Objects.equals(mana, personaje.mana) && region == personaje.region && Objects.equals(habilidades, personaje.habilidades) && Objects.equals(equipamiento, personaje.equipamiento) && Objects.equals(escalabilidad, personaje.escalabilidad);
+        return id == personaje.id && Objects.equals(nombre, personaje.nombre) && Objects.equals(descripcion, personaje.descripcion) && Objects.equals(fechaCreacion, personaje.fechaCreacion) && Objects.equals(nivel, personaje.nivel) && Objects.equals(vidaBase, personaje.vidaBase) && Objects.equals(manaBase, personaje.manaBase) && Objects.equals(defensaBase, personaje.defensaBase) && Objects.equals(defensa, personaje.defensa) && Objects.equals(ataqueBase, personaje.ataqueBase) && Objects.equals(ataque, personaje.ataque) && Objects.equals(vida, personaje.vida) && Objects.equals(mana, personaje.mana) && region == personaje.region && Objects.equals(habilidades, personaje.habilidades) && Objects.equals(equipamiento, personaje.equipamiento) && Objects.equals(escalabilidad, personaje.escalabilidad);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, nombre, descripcion, fechaCreacion, nivel, videBase, manaBase, defensaBase, defensa, ataqueBase, ataque, vida, mana, region, habilidades, equipamiento, escalabilidad);
+        return Objects.hash(id, nombre, descripcion, fechaCreacion, nivel, vidaBase, manaBase, defensaBase, defensa, ataqueBase, ataque, vida, mana, region, habilidades, equipamiento, escalabilidad);
     }
 }
