@@ -1,8 +1,8 @@
 package utilidades;
 
 import com.opencsv.CSVReader;
-import modelos.Coche;
-import modelos.Color;
+import modelos.Personaje;
+
 
 import java.awt.*;
 import java.io.FileReader;
@@ -22,12 +22,12 @@ public class UtilidadesFicheros {
     public static final char SEPARATOR=';';
     public static final char QUOTE='"';
 
-    public static List<Coche>  leerFicheroCoches() throws IOException {
+    public static List<Personaje>  leerFicheroCoches() throws IOException {
 
-        List<Coche> coches = new ArrayList<>();
+        List<Personaje> coches = new ArrayList<>();
         CSVReader reader = null;
-        try {
-            reader = new CSVReader(new FileReader("C:\\Users\\34638\\IdeaProjects\\concesionario\\src\\main\\java\\ficheros\\archivos\\Coche.csv"),SEPARATOR,QUOTE);
+        try {                                            //"E:\\java proyect 2\\src\\main\\java\\Coche.csv"
+            reader = new CSVReader(new FileReader("E:\\java proyect 2\\src\\main\\java\\Coche.csv"),SEPARATOR,QUOTE);
             String[] nextLine= null ;
             int count = 0;
 
@@ -35,10 +35,10 @@ public class UtilidadesFicheros {
 
                 if(count >0) {
                     String[] valores = nextLine[0].toString().split(",");
-                    Coche c = new Coche();
-                    c.setMatricula(valores[0]);
-                    c.setFechaMatriculacion(LocalDate.parse(valores[1], DateTimeFormatter.ofPattern("dd/MM/yyyy")));
-                    c.setColor(Color.valueOf(valores[2]));
+                    Personaje p = new Personaje();
+                    p.setId(Integer.parseInt(valores[0]));
+                    p.setFechaMatriculacion(LocalDate.parse(valores[1], DateTimeFormatter.ofPattern("dd/MM/yyyy")));
+                    p.setColor(Color.valueOf(valores[2]));
                     coches.add(c);
                 }
                 count++;
@@ -51,9 +51,6 @@ public class UtilidadesFicheros {
         reader.close();
 
         return  coches;
-
     }
-
-
 
 }
