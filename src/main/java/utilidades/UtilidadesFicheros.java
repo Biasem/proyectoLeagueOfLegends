@@ -2,6 +2,7 @@ package utilidades;
 
 import com.opencsv.CSVReader;
 import modelos.Personaje;
+import modelos.Region;
 
 
 import java.awt.*;
@@ -24,10 +25,10 @@ public class UtilidadesFicheros {
 
     public static List<Personaje>  leerFicheroCoches() throws IOException {
 
-        List<Personaje> coches = new ArrayList<>();
-        CSVReader reader = null;
+        List<Personaje> personajes = new ArrayList<>();
+        CSVReader reader = null;                          //"D:\\Descargas Utorrent\\estudios\\DAW 1\\java proyect lol\\src\\main\\java\\coche.csv"
         try {                                            //"E:\\java proyect 2\\src\\main\\java\\Coche.csv"
-            reader = new CSVReader(new FileReader("E:\\java proyect 2\\src\\main\\java\\Coche.csv"),SEPARATOR,QUOTE);
+            reader = new CSVReader(new FileReader("D:\\Descargas Utorrent\\estudios\\DAW 1\\java proyect lol\\src\\main\\java\\coche.csv"),SEPARATOR,QUOTE);
             String[] nextLine= null ;
             int count = 0;
 
@@ -37,9 +38,14 @@ public class UtilidadesFicheros {
                     String[] valores = nextLine[0].toString().split(",");
                     Personaje p = new Personaje();
                     p.setId(Integer.parseInt(valores[0]));
-                    p.setFechaMatriculacion(LocalDate.parse(valores[1], DateTimeFormatter.ofPattern("dd/MM/yyyy")));
-                    p.setColor(Color.valueOf(valores[2]));
-                    coches.add(c);
+                    p.setNombre(valores[1]);
+                    p.setFechaCreacion(LocalDate.parse(valores[2], DateTimeFormatter.ofPattern("dd/MM/yyyy")));
+                    p.setAtaqueBase( Double.parseDouble(valores[3]));
+                    p.setDefensaBase( Double.parseDouble(valores[4]));
+                    p.setVidaBase( Double.parseDouble(valores[5]));
+                    p.setManaBase( Double.parseDouble(valores[6]));
+                    p.setRegion( Region.valueOf(valores[7]));
+                    personajes.add(p);
                 }
                 count++;
             }
@@ -50,7 +56,7 @@ public class UtilidadesFicheros {
 
         reader.close();
 
-        return  coches;
+        return  personajes;
     }
 
 }
