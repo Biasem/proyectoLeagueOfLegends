@@ -23,7 +23,7 @@ public class UtilidadesFicheros {
     public static final char SEPARATOR=';';
     public static final char QUOTE='"';
 
-    public static List<Personaje>  leerFicheroCoches() throws IOException {
+    public static List<Personaje>  leerFicheroPersonajes() throws IOException {
 
         List<Personaje> personajes = new ArrayList<>();
         CSVReader reader = null;                          //"D:\\Descargas Utorrent\\estudios\\DAW 1\\java proyect lol\\src\\main\\java\\coche.csv"
